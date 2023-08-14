@@ -17,6 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string('ten_phim');
             $table->float('gia_tien');
+            $table->unsignedBigInteger('user_id');
             $table->timestamps();
         });
     }

@@ -46,3 +46,13 @@ Route::get('returnViewUpdate/{id}',  "App\Http\Controllers\Phim2Controller@retur
 Route::PUT('update/{id}',  "App\Http\Controllers\Phim2Controller@update");
 
 Route::get('delete/{id}',  "App\Http\Controllers\Phim2Controller@delete");
+
+
+Route::get('returnRegister', "App\Http\Controllers\UserController@returnRegister");
+Route::post('register', "App\Http\Controllers\UserController@register");
+
+Route::get('returnLogin', "App\Http\Controllers\UserController@returnLogin");
+Route::post('login', "App\Http\Controllers\UserController@login");
+
+
+Route::get('testRelationship', "App\Http\Controllers\UserController@getRela");

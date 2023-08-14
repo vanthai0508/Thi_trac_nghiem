@@ -12,4 +12,8 @@ class Phim extends Model
         'ten_phim',
         'gia_tien'
     ];
+
+    public function user(){
+        return $this->belongsTo(User::class);
+    }
 }
