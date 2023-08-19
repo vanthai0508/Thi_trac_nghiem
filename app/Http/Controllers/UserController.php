@@ -42,8 +42,22 @@ class UserController extends Controller
 
         $user = User::where('email', $data['email'])->first();
         if($data['password'] == $user->password) {
+            
+            if($user->status == 0 ) {
+                echo '<script language="javascript">alert("M chua duoc admin accept !!!");</script>';
+                return view('login');
+            }
             echo '<script language="javascript">alert("Dang nhap thanh cong !!!");</script>';
-            return view('trangchu');
+
+            switch($user->role) {
+                case 'admin': 
+                    return view('Admin.TrangChu');
+                case 'staff':
+                    return view('Staff.TrangChu');
+                default:
+                    return view('Customer.TrangChu');
+            }
+            // return view('trangchu');
         } else {
             echo '<script language="javascript">alert("Dang nhap that bai !!!");</script>';
         }
